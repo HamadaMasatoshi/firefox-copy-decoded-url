@@ -27,12 +27,24 @@ browser.storage.onChanged.addListener((changes) => {
   }
 });
 
-// 工具栏按钮功能保持不变
-browser.action.onClicked.addListener(async () => {
-  const tabs = await browser.tabs.query({ active: true, currentWindow: true });
-  const url = tabs[0].url;
-  const decodedUrl = decodeURIComponent(url);
-  await navigator.clipboard.writeText(decodedUrl);
+// 工具栏按钮功能：直接利用传进来的 tab 对象
+browser.action.onClicked.addListener(async (tab) => {
+  // 调试信息：如果这里还打印 undefined，说明 manifest 权限没生效
+  console.log("Current tab URL:", tab.url);
+
+  if (tab.url) {
+    try {
+      const decodedUrl = decodeURIComponent(tab.url);
+      await navigator.clipboard.writeText(decodedUrl);
+      
+      // 可选：添加一个简单的通知，确认复制成功
+      console.log("URL copied!");
+    } catch (e) {
+      console.error("Failed to copy/decode URL:", e);
+    }
+  } else {
+    console.error("No URL found. Check 'activeTab' permission.");
+  }
 });
 
 // 监听右键点击
