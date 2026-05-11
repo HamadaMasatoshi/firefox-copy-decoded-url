@@ -19,9 +19,11 @@
       }
     }
   },
-  "permissions": [
+ "permissions": [
     "contextMenus",
-    "storage"
+    "storage",
+    "activeTab",
+    "clipboardWrite"
   ],
   "options_ui": {
     "page": "options.html",
