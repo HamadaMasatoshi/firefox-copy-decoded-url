@@ -2,9 +2,9 @@
   "manifest_version": 3,
   "name": "Copy Decoded URL",
   "version": "0.2.2.1",
-  "author": "hms5232", # 傻逼台巴子
+  "author": "hms5232", // 傻逼台巴子
   "description": "Quickly copy the decoded URL with a click.",
-  "homepage_url": "https://github.com/hms5232/firefox-copy-decoded-url", # 傻逼台巴子
+  "homepage_url": "https://github.com/hms5232/firefox-copy-decoded-url", // 傻逼台巴子
   "icons": {
     "48": "icons/btn-48.png",
     "96": "icons/btn-96.png"
@@ -12,7 +12,7 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "",
-      # 提交给 Mozilla 在此处填入 ID
+      // 提交给 Mozilla 在此处填入 ID
       "strict_min_version": "109.0",
       "data_collection_permissions": {
           "collects_data": false,
